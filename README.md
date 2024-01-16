@@ -1,7 +1,12 @@
 # ONI zh Wiki Workflow——Technical details in nutshells
-本文档旨在总结[缺氧中文wiki](https://oni.fandom.com/zh)的组成架构，介绍部分技术细节，以供编辑者参考。
+本文档旨在总结[缺氧中文 wiki](https://oni.fandom.com/zh) 的组成架构，介绍部分技术细节，以供编辑者参考。
 
 由于内容架构复杂，小编精力有限，本文档组织形式可能较为混乱，也难以囊括各编辑者所需要的一切信息。欢迎各位编辑者一起补充、完善本文档！
+
+## MediaWiki 简介
+目前，缺氧中文 wiki 搭建在 Fandom 维基农场上，其底层软件为 MediaWiki。简单来说，wiki 的绝大多数功能都是由 MediaWiki 提供的。它负责数据的存储、读出和解析等等。严格来说，MediaWiki 负责了站点内部的所有底层工作流，如解析 wikitext 等。本文档不会介绍这些底层工作。关于 MediaWiki 的更多信息，可参见 [Mediawiki.org](https://mediawiki.org)。
+
+> 小知识：MediaWiki 是为 Wikipedia 项目开发的软件，也是（几乎？）所有维基农场使用的维基软件。其他的维基软件有 [TWiki](https://en.wikipedia.org/wiki/TWiki) 等等。各个维基软件之间差异极大。
 
 ## 资源分布简介
 缺氧 wiki 的相关资源，按是否储存在[站点](oxygennotincluded.fandom.com/zh)内可粗略分为**站内资源**和**站外资源**。一般而言，**站内资源**是所有人都可直接看到并修改的，而**站外资源**通常由个人或团体开发，不总是面向所有人开放。
@@ -20,6 +25,8 @@
 
 ### 文案
 作为使用 MediaWiki 的 wiki，缺氧 wiki 的文案均以 wikitext 格式撰写，储存在站点上（即 Fandom 服务器中）。wikitext 可由 MediaWiki 解析为 HTML，进而显示在网页上。
+
+> 小提示：wikitext 是 MediaWiki 使用的标记语言。
 
 > 小提示：具体地说，文案内容是 MediaWiki 数据库（database）的一部分。MediaWiki 数据库负责储存站点的页面内容、用户信息、元信息等。另一部分重要文件，如图片、软件设置文件、MediaWiki 扩展等，储存在 MediaWiki 文件系统（File System）中。可参见[此处](https://www.mediawiki.org/wiki/Manual:Backing_up_a_wiki)。
 
