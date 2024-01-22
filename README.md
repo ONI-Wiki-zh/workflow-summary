@@ -3,6 +3,9 @@
 
 由于内容架构复杂，小编精力有限，本文档组织形式可能较为混乱，也难以囊括各编辑者所需要的一切信息。欢迎各位编辑者一起补充、完善本文档！
 
+## TL;DR
+![工作流示意图](workflow.drawio.svg)
+
 ## MediaWiki 简介
 目前，缺氧中文 wiki 搭建在 Fandom 维基农场上，其底层软件为 MediaWiki。简单来说，wiki 的绝大多数功能都是由 MediaWiki 提供的。它负责数据的存储、读出和解析等等。严格来说，MediaWiki 负责了站点内部的所有底层工作流，如解析 wikitext 等。本文档不会介绍这些底层工作。关于 MediaWiki 的更多信息，可参见 [Mediawiki.org](https://mediawiki.org)。
 
