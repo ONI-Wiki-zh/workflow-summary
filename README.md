@@ -73,4 +73,19 @@ MediaWiki 没有内置的图片批量导出功能。批量导出图片需要使�
 （WIP）
 
 ## 站外工作流
-（WIP）
+### 游戏数据提取
+
+> 解包游戏资产，提取出图片、表格和游戏内数据
+
+![工作流示意图](workflow_data_extract.drawio.svg)
+
+
+
+### wiki机器人
+
+> 管理wiki站点的页面、数据库和代码文件
+
+部分自动化代码托管至Github Actions
+
+![工作流示意图](workflow_wiki_bot.drawio.svg)
+
