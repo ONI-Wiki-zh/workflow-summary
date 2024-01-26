@@ -31,7 +31,7 @@
 
 > 小提示：wikitext 是 MediaWiki 特有的标记语言。
 
-> 小提示：编辑权限是可设置项。在目前（2023.1），缺氧中文 wiki 允许所有人编辑所有页面（除个别保护页面外），包括未注册用户。
+> 小提示：编辑权限是可设置项。在目前（2024.1），缺氧中文 wiki 允许所有人编辑所有页面（除个别保护页面外），包括未注册用户。
 
 > 小提示：具体地说，文案内容是 MediaWiki 数据库（database）的一部分。MediaWiki 数据库负责储存站点的页面内容、用户信息、元信息等。
 
@@ -57,7 +57,7 @@ MediaWiki 没有内置的图片批量导出功能。批量导出图片需要使�
 其他资源包括自定义 Javascript、CSS、由 MediaWiki 调用的页面等。
 
 ## 站外资源
-截至目前（2023.1），站外资源主要有以下几个项目/组成部分：
+截至目前（2024.1），站外资源主要有以下几个项目/组成部分：
 
 - BotNotIncluded：由 DDElephant 开发的项目，主要包含以下功能：
     - 读取部分游戏数据，转化为 Lua 格式后上传至站内模块
@@ -67,7 +67,7 @@ MediaWiki 没有内置的图片批量导出功能。批量导出图片需要使�
 - （其他站外项目）（WIP）
 - 其他站外内容：主要包括被直接调用而未导入到站内的站外脚本，比如 Lua 模块、JS 脚本和 CSS 文件等。
 
-> 小提示：现阶段（2023.1），一部分站外脚本来自于 [Fandom dev wiki](https://dev.fandom.com/wiki/Fandom_Developers_Wiki)。
+> 小提示：现阶段（2024.1），一部分站外脚本来自于 [Fandom dev wiki](https://dev.fandom.com/wiki/Fandom_Developers_Wiki)。
 
 ## 站内工作流
 （WIP）
@@ -81,11 +81,15 @@ MediaWiki 没有内置的图片批量导出功能。批量导出图片需要使�
 
 
 
-### wiki机器人
+### BotNotIncluded
 
 > 管理wiki站点的页面、数据库和代码文件
 
 部分自动化代码托管至Github Actions
+
+格式修正工作流：
+
+![工作流示意图](workflow_auto-format.drawio.svg)
 
 ![工作流示意图](workflow_wiki_bot.drawio.svg)
 
