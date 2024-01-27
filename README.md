@@ -87,9 +87,11 @@ MediaWiki 没有内置的图片批量导出功能。批量导出图片需要使�
 
 部分自动化代码托管至Github Actions
 
-格式修正工作流：
+![工作流示意图](workflow_WIKI_BOT.drawio.svg)
 
 ![工作流示意图](workflow_auto-format.drawio.svg)
+
+![工作流示意图](workflow_Sync_EN.drawio.svg)
 
 ![工作流示意图](workflow_wiki_bot.drawio.svg)
 
