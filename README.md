@@ -4,6 +4,8 @@
 由于内容架构复杂，小编精力有限，本文档组织形式可能较为混乱，也难以囊括各编辑者所需要的一切信息。欢迎各位编辑者一起补充、完善本文档！
 
 ## TL;DR
+![工作流示意图](workflow_sketch.drawio.svg)
+
 ![工作流示意图](workflow.drawio.svg)
 
 ## MediaWiki 简介
@@ -80,7 +82,6 @@ MediaWiki 没有内置的图片批量导出功能。批量导出图片需要使�
 ![工作流示意图](workflow_data_extract.drawio.svg)
 
 
-
 ### BotNotIncluded
 
 > 管理wiki站点的页面、数据库和代码文件
@@ -92,6 +93,3 @@ MediaWiki 没有内置的图片批量导出功能。批量导出图片需要使�
 ![工作流示意图](workflow_auto-format.drawio.svg)
 
 ![工作流示意图](workflow_Sync_EN.drawio.svg)
-
-![工作流示意图](workflow_wiki_bot.drawio.svg)
-
