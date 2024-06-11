@@ -56,6 +56,18 @@ MediaWiki 没有内置的图片批量导出功能。批量导出图片需要使�
 
 **模块**（Module）是一个（Lua）程序。在启用了 MediaWiki 的 [Scribunto](https://www.mediawiki.org/wiki/Extension:Scribunto) 扩展后，可以在 wikitext 中调用编程语言程序（目前只支持 Lua）来辅助生成页面内容。模块之间也可以互相调用。
 
+以下是一些主要的模板/模块之间的关联关系。
+
+| 类型   | Template                                                     | Module                                                       | Module:Data                                                  | Module引用           |
+| ------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------- |
+| 建筑   | [Template:建筑信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:%E5%BB%BA%E7%AD%91%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:建筑信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E5%BB%BA%E7%AD%91%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:Data/Buildings](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Buildings) | Module:信息框/建筑   |
+| 小动物 | [Template:小动物信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:%E5%B0%8F%E5%8A%A8%E7%89%A9%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:小动物信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E5%B0%8F%E5%8A%A8%E7%89%A9%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:Data/Critters](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Critters) | Module:信息框/小动物 |
+| 植物   |                                                              | [Module:植物信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E6%A4%8D%E7%89%A9%E4%BF%A1%E6%81%AF%E6%A1%86) |                                                              |                      |
+| 元素   |                                                              |                                                              |                                                              |                      |
+| 装备   |                                                              |                                                              |                                                              |                      |
+| 食物   |                                                              |                                                              |                                                              |                      |
+| 间歇泉 |                                                              | [Module:间歇泉信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E9%97%B4%E6%AD%87%E6%B3%89%E4%BF%A1%E6%81%AF%E6%A1%86) |                                                              |                      |
+
 ### 其他资源
 其他资源包括自定义 Javascript、CSS、由 MediaWiki 调用的页面等。
 
@@ -85,6 +97,21 @@ MediaWiki 没有内置的图片批量导出功能。批量导出图片需要使�
 > 解包游戏资产，提取出图片和游戏内数据。将处理好的数据更新至wiki。
 
 ![工作流示意图](workflow_data_extract.drawio.svg)
+
+以下是由`OniExtract2024`项目导出的json文件与wiki站点以`Module:Data`前缀的页面间的关联关系。
+
+
+| 类型   | json文件       | lua文件 | Module:Data                                                  |
+| ------ | -------------- | ------- | ------------------------------------------------------------ |
+| 建筑   | building.json  |         | [Module:Data/Buildings](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Buildings) |
+| 小动物 | entities.json  |         |                                                              |
+| 植物   | entities.json  |         |                                                              |
+| 元素   | elements.json  |         |                                                              |
+| 装备   | equipment.json |         |                                                              |
+| 食物   | food.json      |         |                                                              |
+| 间歇泉 | geyser.json    |         |                                                              |
+
+
 
 ### Wiki巡查机器人
 
