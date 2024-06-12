@@ -56,18 +56,6 @@ MediaWiki 没有内置的图片批量导出功能。批量导出图片需要使�
 
 **模块**（Module）是一个（Lua）程序。在启用了 MediaWiki 的 [Scribunto](https://www.mediawiki.org/wiki/Extension:Scribunto) 扩展后，可以在 wikitext 中调用编程语言程序（目前只支持 Lua）来辅助生成页面内容。模块之间也可以互相调用。
 
-以下是一些主要的模板/模块之间的关联关系。
-
-| 类型   | Template                                                     | Module                                                       | Module:Data                                                  | Module引用           |
-| ------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | -------------------- |
-| 建筑   | [Template:建筑信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:%E5%BB%BA%E7%AD%91%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:建筑信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E5%BB%BA%E7%AD%91%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:Data/Buildings](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Buildings) | Module:信息框/建筑   |
-| 小动物 | [Template:小动物信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:%E5%B0%8F%E5%8A%A8%E7%89%A9%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:小动物信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E5%B0%8F%E5%8A%A8%E7%89%A9%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:Data/Critters](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Critters) | Module:信息框/小动物 |
-| 植物   | [Template:植物信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:%E6%A4%8D%E7%89%A9%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:植物信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E6%A4%8D%E7%89%A9%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:Data/Plants](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Plants) | Module:信息框/植物 |
-| 元素   | [Template:元素信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:%E5%85%83%E7%B4%A0%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:元素信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E5%85%83%E7%B4%A0%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:Data/Elements](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Elements) | Template:元素信息框/信息框 |
-| 装备   |                                                              |                                                              |                                                              |                      |
-| 食物   | [Template:食物信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:%E9%A3%9F%E7%89%A9%E4%BF%A1%E6%81%AF%E6%A1%86) |                                                              | [Module:Data/Food](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Food) |     |
-| 间歇泉 | [Template:间歇泉信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:%E9%97%B4%E6%AD%87%E6%B3%89%E4%BF%A1%E6%81%AF%E6%A1%86)| [Module:间歇泉信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E9%97%B4%E6%AD%87%E6%B3%89%E4%BF%A1%E6%81%AF%E6%A1%86) |                                                              |                      |
-
 ### 其他资源
 其他资源包括自定义 Javascript、CSS、由 MediaWiki 调用的页面等。
 
@@ -85,11 +73,75 @@ MediaWiki 没有内置的图片批量导出功能。批量导出图片需要使�
 - 站外脚本：主要包括被直接调用而未导入到站内的站外脚本，比如 Lua 模块、JS 脚本和 CSS 文件等。
     - 现阶段（2024.1），一部分站外脚本来自于 [Fandom dev wiki](https://dev.fandom.com/wiki/Fandom_Developers_Wiki)。
 
+
+
 # wiki日常维护
 
 ## 站内工作
 
-（WIP）
+### 文案编辑
+
+> 对wiki上各个页面进行维护。主要是在命名空间为main的页面进行活动。
+
+常见的任务类型有
+
+- 创建页面并完善
+- 更新旧页面
+- 检查重复的页面
+- 日常巡查，发现无法正常显示的页面
+
+### 模板维护
+
+> 一个好的模板可以使wiki文章的编辑工作事半功倍。配合站外工作流，可以通过各类站外项目，将wiki上大量的编辑&校正工作，交由代码来自动化完成。
+
+**信息框模板**
+
+`信息框`类型的模板，它们的模板/模块之间的关联关系如下表所示。
+
+| 类型      | Template                                                     | Module                                                       | Module:Data                                                  | Module引用                                                   |
+| --------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 建筑      | [Template:建筑信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:%E5%BB%BA%E7%AD%91%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:建筑信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E5%BB%BA%E7%AD%91%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:Data/Buildings](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Buildings) | [Module:信息框/建筑](https://oxygennotincluded.wiki.gg/zh/wiki/Module:信息框/建筑) |
+| 小动物    | [Template:小动物信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:%E5%B0%8F%E5%8A%A8%E7%89%A9%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:小动物信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E5%B0%8F%E5%8A%A8%E7%89%A9%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:Data/Critters](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Critters) | [Module:信息框/小动物](https://oxygennotincluded.wiki.gg/zh/wiki/Module:信息框/小动物) |
+| 植物      | [Template:植物信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:%E6%A4%8D%E7%89%A9%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:植物信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E6%A4%8D%E7%89%A9%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:Data/Plants](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Plants) | [Module:信息框/植物](https://oxygennotincluded.wiki.gg/zh/wiki/Module:信息框/植物) |
+| 元素      | [Template:元素信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:元素信息框) | [Module:元素信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:元素信息框) | [Module:Data/Elements](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Elements) |                                                              |
+| 装备      | [Template:物品信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:物品信息框) | [Module:物品信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:物品信息框) |                                                              | [Module:信息框/物品](https://oxygennotincluded.wiki.gg/zh/wiki/Module:信息框/物品) |
+| 食物      | [Template:食物信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:食物信息框) | [Module:食物信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:食物信息框) | [Module:Data/Food](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Food) | [Module:信息框/食物](https://oxygennotincluded.wiki.gg/zh/wiki/Module:信息框/食物) |
+| 间歇泉    | [Template:间歇泉信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:间歇泉信息框) | [Module:间歇泉信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E9%97%B4%E6%AD%87%E6%B3%89%E4%BF%A1%E6%81%AF%E6%A1%86) | [Module:Data/Geysers](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Geysers) |                                                              |
+| 小行星    | [Template:小行星信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:小行星信息框) | [Module:小行星信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:小行星信息框) | Module:Data/Worldgen/Worlds; Module:Data/Worldgen/Worlds/Expansion1; Module:Data/Worldgen/Clusters/Expansion1; Module:Data/Geysers; | [Module:信息框/小行星](https://oxygennotincluded.wiki.gg/zh/wiki/Module:信息框/小行星) |
+| 星群(DLC) | [Template:星群信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:星群信息框) | [Module:星群信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:星群信息框) | Module:Data/Worldgen/Worlds; Module:Data/Worldgen/Worlds/Expansion1; Module:Data/Templates/Poi/Expansion1; | [Module:信息框/星群](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E4%BF%A1%E6%81%AF%E6%A1%86/%E6%98%9F%E7%BE%A4) |
+| 技术      | [Template:技术信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:技术信息框) | [Module:技术信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:技术信息框) | [Module:科技点](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E7%A7%91%E6%8A%80%E7%82%B9) | [Module:信息框/技术](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E4%BF%A1%E6%81%AF%E6%A1%86/%E6%8A%80%E6%9C%AF) |
+| 技能      | [Template:技能信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:技能信息框) | [Module:技能信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:技能信息框) |                                                              | [Module:信息框/技能](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E4%BF%A1%E6%81%AF%E6%A1%86/%E6%8A%80%E8%83%BD) |
+| 生态      | [Template:生态信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:生态信息框) | [Module:生态信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Module:生态信息框) | [Module:Data/Worldgen/Biomes](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Worldgen/Biomes) | [Module:信息框/生态](https://oxygennotincluded.wiki.gg/zh/wiki/Module:%E4%BF%A1%E6%81%AF%E6%A1%86/%E7%94%9F%E6%80%81) |
+| 故事特质  | [Template:故事特质信息框](https://oxygennotincluded.wiki.gg/zh/wiki/Template:故事特质信息框) |                                                              |                                                              |                                                              |
+|           |                                                              |                                                              |                                                              |                                                              |
+
+**导航栏模板**
+
+`导航栏`类型的模板，它们的模板/模块之间的关联关系如下表所示。
+
+| 类型     | Template                                                     | Module                                                       | Module:Data                                                  |
+| -------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 建筑     | [Template:建筑导航](https://oxygennotincluded.wiki.gg/zh/wiki/Template:建筑导航) | [Module:建筑导航](https://oxygennotincluded.wiki.gg/zh/wiki/Module:建筑导航) |                                                              |
+| 小动物   | [Template:小动物导航](https://oxygennotincluded.wiki.gg/zh/wiki/Template:小动物导航) | [Module:小动物导航](https://oxygennotincluded.wiki.gg/zh/wiki/Module:小动物导航) |                                                              |
+| 植物     | [Template:植物导航](https://oxygennotincluded.wiki.gg/zh/wiki/Template:植物导航) | [Module:植物导航](https://oxygennotincluded.wiki.gg/zh/wiki/Module:植物导航) | [Module:Data/Plants](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Plants) |
+| 元素     | [Template:元素导航](https://oxygennotincluded.wiki.gg/zh/wiki/Template:元素导航) | [Module:元素导航](https://oxygennotincluded.wiki.gg/zh/wiki/Module:元素导航) | [Module:Data/Elements](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Elements) |
+| 物品     | [Template:物品导航](https://oxygennotincluded.wiki.gg/zh/wiki/Template:物品导航) | [Module:食物导航](https://oxygennotincluded.wiki.gg/zh/wiki/Module:食物导航) | [Module:Data/Food](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Food) |
+| 世界生成 | [Template:世界生成导航](https://oxygennotincluded.wiki.gg/zh/wiki/Template:世界生成导航) | [Module:世界生成导航](https://oxygennotincluded.wiki.gg/zh/wiki/Module:世界生成导航) |                                                              |
+| 游戏版本 | [Template:版本页脚](https://oxygennotincluded.wiki.gg/zh/wiki/Template:版本页脚) | [Module:版本导航](https://oxygennotincluded.wiki.gg/zh/wiki/Module:版本导航) |                                                              |
+| 疾病     | [Template:疾病导航](https://oxygennotincluded.wiki.gg/zh/wiki/Template:疾病导航) |                                                              |                                                              |
+|          |                                                              |                                                              |                                                              |
+
+
+
+### 预设模板维护
+
+### 主题样式维护
+
+### Gadgets小工具管理
+
+[用户小工具参数设置](https://oxygennotincluded.wiki.gg/zh/wiki/Special:%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE#mw-prefsection-gadgets)
+
+
 
 ## 站外工作
 ### 游戏数据上传更新
@@ -98,18 +150,20 @@ MediaWiki 没有内置的图片批量导出功能。批量导出图片需要使�
 
 ![工作流示意图](workflow_data_extract.drawio.svg)
 
+`/data/schema/`目录下的json文件，是用于对lua数据格式的定义文件。
+
 以下是由`OniExtract2024`项目导出的json文件与wiki站点以`Module:Data`前缀的页面间的关联关系。
 
 
-| 类型   | json文件       | lua文件 | Module:Data                                                  |
-| ------ | -------------- | ------- | ------------------------------------------------------------ |
-| 建筑   | building.json  |         | [Module:Data/Buildings](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Buildings) |
-| 小动物 | entities.json  |         |                                                              |
-| 植物   | entities.json  |         |                                                              |
-| 元素   | elements.json  |         |                                                              |
-| 装备   | equipment.json |         |                                                              |
-| 食物   | food.json      |         |                                                              |
-| 间歇泉 | geyser.json    |         |                                                              |
+| 类型   | json文件       | lua文件    | Module:Data                                                  |
+| ------ | -------------- | ---------- | ------------------------------------------------------------ |
+| 建筑   | building.json  |            | [Module:Data/Buildings](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Buildings) |
+| 小动物 | entities.json  |            |                                                              |
+| 植物   | entities.json  | Plants.lua | [Module:Data/Plants](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Plants) |
+| 元素   | elements.json  |            |                                                              |
+| 装备   | equipment.json |            |                                                              |
+| 食物   | food.json      | Food.lua   | [Module:Data/Food](https://oxygennotincluded.wiki.gg/zh/wiki/Module:Data/Food) |
+| 间歇泉 | geyser.json    |            |                                                              |
 
 
 
